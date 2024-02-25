@@ -6,6 +6,9 @@ public class Brand : Entity
 {
     public string Name { get; set; }
 
+    //Bir markanın birden çok modeli var.
+    public virtual ICollection<Model> Models { get; set; }
+
     public Brand()
     {
 
