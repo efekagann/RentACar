@@ -2,14 +2,10 @@
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace Persistence.Migrations
 {
-    /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -28,14 +24,14 @@ namespace Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "Brands",
                 columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "BMW" },
-                    { 2, "Mercedes" }
-                });
+                values: new object[] { 1, "BMW" });
+
+            migrationBuilder.InsertData(
+                table: "Brands",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 2, "Mercedes" });
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
